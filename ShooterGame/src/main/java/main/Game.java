@@ -13,13 +13,14 @@ public class Game extends Canvas implements Runnable{
     private boolean isRunning = false;
     private Thread thread;
     private Handler handler;
-    
+    public static final int W = 1000, H = 563;
     public Game(){
         new Window(1000, 563, "Shooter game", this);
         start();
         
         handler = new Handler();
-        handler.addObject(new Box(100, 100));
+        this.addKeyListener(new KeyInput(handler));
+        handler.addObject(new Wizard(100, 100, ID.Player, handler));
     }
     
     private void start(){

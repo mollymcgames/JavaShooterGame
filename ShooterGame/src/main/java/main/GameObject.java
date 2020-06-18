@@ -3,10 +3,12 @@ import java.awt.Graphics;import java.awt.Rectangle;
 public abstract class GameObject {
     protected int x, y;
     protected int velocityX, velocityY; //speed in x and y direction 
+    protected ID id;
 //contructor for game object:
-    public GameObject(int x, int y){
+    public GameObject(int x, int y, ID id){
         this.x = x;
         this.y = y;
+        this.id = id;
     }  //abstract class will need to be in player and enemy class.
     public abstract void tick();
     public abstract void render(Graphics g);
@@ -24,7 +26,12 @@ public abstract class GameObject {
     public int getX(){
         return x;
     }
-
+    public void setId(ID id){
+        this.id = id;
+    }
+    public ID getId(){
+        return id;
+    }
     public void setvelocityX(int velocityX){
         this.velocityX = velocityX;
     }

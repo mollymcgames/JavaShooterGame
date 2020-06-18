@@ -11,6 +11,8 @@ import java.util.LinkedList;
 public class Handler {
     //get array of objects
     LinkedList<GameObject> object = new LinkedList<GameObject>();
+    private boolean up = false, down = false, right = false, left = false;
+    
     public void tick(){
         for(int i = 0; i < object.size(); i++){
             GameObject tempObject= object.get(i);
@@ -30,6 +32,49 @@ public class Handler {
     }
     public void removeObject(GameObject tempObject){
         object.remove(tempObject);
+    }
+
+
+    public boolean isUp() {
+        return up;
+    }
+
+  
+    public void setUp(boolean up) {
+        this.up = up;
+    }
+
+    /**
+     * @return the down
+     */
+    public boolean isDown() {
+        return down;
+    }
+
+    
+    public void setDown(boolean down) {
+        this.down = down;
+    }
+
+    /**
+     * @return the right
+     */
+    public boolean isRight() {
+        return right;
+    }
+
+   
+    public void setRight(boolean right) {
+        this.right = right;
+    }
+
+   
+    public boolean isLeft() {
+        return left;
+    }
+
+    public void setLeft(boolean left) {
+        this.left = left;
     }
     
 }
