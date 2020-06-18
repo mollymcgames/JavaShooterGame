@@ -12,10 +12,14 @@ public class Game extends Canvas implements Runnable{
     
     private boolean isRunning = false;
     private Thread thread;
+    private Handler handler;
     
     public Game(){
         new Window(1000, 563, "Shooter game", this);
         start();
+        
+        handler = new Handler();
+        handler.addObject(new Box(100, 100));
     }
     
     private void start(){
@@ -68,6 +72,7 @@ public class Game extends Canvas implements Runnable{
     }
     public void tick(){
         
+        handler.tick();
     }
     private void render() {
         BufferStrategy b = this.getBufferStrategy();
@@ -79,6 +84,10 @@ public class Game extends Canvas implements Runnable{
         //window colour
         g.setColor(Color.red);
         g.fillRect(0, 0, 1000, 563);
+        
+        handler.render(g);
+        
+        
         g.dispose();
         b.show();
         
