@@ -17,10 +17,19 @@ public class Wizard extends GameObject {
     public void tick() {
         x += velocityX;
         y += velocityY;
+//        
+//        if(handler.isUp()) velocityY = -5;
+//        else if(!handler.isDown()) velocityY = 0;
+//        if(handler.isDown()) velocityY = 5;
+//        else if(!handler.isUp()) velocityY = 0;
+//        if(handler.isRight()) velocityX = 5;
+//        else if(!handler.isLeft()) velocityX = 0;
+//        if(handler.isLeft()) velocityX = -5;
+//        else if(!handler.isRight()) velocityX = 0;
           if(x < 0) x = 0;
-          if(x > Game.W - 39) x = Game.W - 39;
+          if(x > 10000 - 39) x = 10000 - 39;
           if(y < 0) y = 0;
-          if(y > Game.H - 60) y = Game.H - 60;
+          if(y > 10000 - 60) y = 10000 - 60;
     }
 
     public void render(Graphics g) {
@@ -29,6 +38,7 @@ public class Wizard extends GameObject {
     }
 
     public Rectangle getBounds() {
+       
         return new Rectangle(x, y, 32, 48);
     }
     
