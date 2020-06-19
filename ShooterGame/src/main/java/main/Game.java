@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseAdapter;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.nio.Buffer;
@@ -27,13 +28,13 @@ public class Game extends Canvas implements Runnable{
         handler = new Handler();
         camera = new Camera(0, 0);
         this.addKeyListener(new KeyInput(handler));
-        
+        this.addMouseListener(new MouseInput(handler, camera));
         BufferedImageLoader loader = new BufferedImageLoader();
         level = loader.loadImage("/wizard_level.png");
         
         
         loadLevel(level);
-        handler.addObject(new Wizard(W, W, ID.Player, handler));
+        handler.addObject(new Wizard(150, 100, ID.Player, handler));
         
     }
     

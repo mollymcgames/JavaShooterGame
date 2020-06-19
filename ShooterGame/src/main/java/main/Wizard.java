@@ -17,6 +17,8 @@ public class Wizard extends GameObject {
     public void tick() {
         x += velocityX;
         y += velocityY;
+        
+        collision();
 //        
 //        if(handler.isUp()) velocityY = -5;
 //        else if(!handler.isDown()) velocityY = 0;
@@ -31,6 +33,18 @@ public class Wizard extends GameObject {
           if(y < 0) y = 0;
           if(y > 10000 - 60) y = 10000 - 60;
     }
+    
+    private void collision(){
+        for(int i = 0; i < handler.object.size(); i++){
+            GameObject tempObject = handler.object.get(i);
+            //use intersecting method
+            if(tempObject.getId() == ID.Block){
+                if(getBounds().intersects(tempObject.getBounds())){
+                    x += velocityX * -1;
+                    y += velocityY * -1;
+                }
+                }
+        }}
 
     public void render(Graphics g) {
         g.setColor(Color.blue);
@@ -38,7 +52,6 @@ public class Wizard extends GameObject {
     }
 
     public Rectangle getBounds() {
-       
         return new Rectangle(x, y, 32, 48);
     }
     
