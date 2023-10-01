@@ -1,2 +1,2 @@
 # ShooterGame
-This is a new game
+This is the original template I made for the shooter game in Java
